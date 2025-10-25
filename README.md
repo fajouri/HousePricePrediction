@@ -1,7 +1,7 @@
 # HousePricePrediction
 Predict house prices using Python and machine learning. Includes data preprocessing, model training (Linear Regression, Decision Trees, Random Forest), and performance evaluation. Great for learning regression techniques on real-world data.
 
-<details>
+<Clean CSV>
 ## 🧼 Step-by-Step: Clean CSV for ML in Python
 
 ### 1. **Load the CSV**
@@ -57,4 +57,66 @@ X = df.drop('target_column', axis=1)
 y = df['target_column']
 ```
 
-</details>
+</Clean CSV>
+
+<House Price Prediction with Scikit-Learn>
+## 🏡 House Price Prediction with Scikit-Learn
+
+### 🔧 Step 1: Load and Inspect the Data
+```python
+import pandas as pd
+
+df = pd.read_csv('house_prices.csv')
+print(df.head())
+print(df.info())
+```
+
+### 🧼 Step 2: Clean and Prepare the Data
+```python
+# Handle missing values
+df.dropna(inplace=True)
+
+# Encode categorical features (if Neighborhood_Quality is categorical)
+df['Neighborhood_Quality'] = df['Neighborhood_Quality'].astype('category').cat.codes
+```
+
+### 🎯 Step 3: Define Features and Target
+```python
+X = df[['Square_Footage', 'Num_Bedrooms', 'Num_Bathrooms', 'Year_Built',
+        'Lot_Size', 'Garage_Size', 'Neighborhood_Quality']]
+y = df['House_Price']
+```
+
+### 📊 Step 4: Split the Data
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+### 📈 Step 5: Train the Model
+```python
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+```
+
+### 🧪 Step 6: Evaluate the Model
+```python
+from sklearn.metrics import mean_squared_error, r2_score
+
+y_pred = model.predict(X_test)
+print("R² Score:", r2_score(y_test, y_pred))
+print("MSE:", mean_squared_error(y_test, y_pred))
+```
+
+### 🔍 Step 7: Interpret Coefficients
+```python
+coefficients = pd.DataFrame({
+    'Feature': X.columns,
+    'Coefficient': model.coef_
+})
+print(coefficients)
+```
+</House Price Prediction with Scikit-Learn>
