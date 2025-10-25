@@ -1,7 +1,7 @@
 # HousePricePrediction
 Predict house prices using Python and machine learning. Includes data preprocessing, model training (Linear Regression, Decision Trees, Random Forest), and performance evaluation. Great for learning regression techniques on real-world data.
 
-<detail>
+<details>
 <summary>🧼 Clean CSV for Machine Learning</summary>
 ## 🧼 Step-by-Step: Clean CSV for ML in Python
 
@@ -57,9 +57,8 @@ df[['feature1', 'feature2']] = scaler.fit_transform(df[['feature1', 'feature2']]
 X = df.drop('target_column', axis=1)
 y = df['target_column']
 ```
-
-</detail>
-<detail>
+</details>
+<details>
 <summary>House Price Prediction with Scikit-Learn</summary>
 ## 🏡 House Price Prediction with Scikit-Learn
 
